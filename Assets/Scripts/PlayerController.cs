@@ -14,18 +14,16 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    
+
     void Update()
     {
         float hInput = Input.GetAxisRaw("Horizontal");
         float vInput = Input.GetAxisRaw("Vertical");
 
-        Vector2 movement = new Vector2(hInput, vInput).normalized;
+        Vector2 movement = new Vector2(hInput, vInput);
+        movement.Normalize();
 
-        rb.position += movement * movementSpeed * Time.deltaTime;
+        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 
     }
-
-
-
 }
