@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d8f904fb0192b824b993b8626f93425d
   - enabled: 1
-    path: Assets/Scenes/GamePlay.unity
+    path: Assets/Scenes/GamePlayGrass.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GamePlaySand.unity
+    guid: d130594182e977644800a2a392ddaf45
+  - enabled: 1
+    path: Assets/Scenes/GameWin.unity
+    guid: 4f225b560aa3ede41b5749886f5fb9c2
   m_configObjects: {}

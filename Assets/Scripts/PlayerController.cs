@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float movementSpeed = 1f;
 
     private Rigidbody2D rb;
+
+    public GameManager gameManager;
+
+    public LevelManager levelManager;
 
     void Start()
     {
@@ -26,4 +31,19 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Portal")
+        {
+            levelManager.LoadScene("GamePlaySand");
+        }
+        else if (collision.tag == "Portal2")
+        {
+            levelManager.LoadScene("GameWin");
+        }
+    }
+
+
 }

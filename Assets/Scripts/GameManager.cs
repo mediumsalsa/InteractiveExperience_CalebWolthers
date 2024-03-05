@@ -5,11 +5,40 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    private UI_Manager UImanager;
+    public UI_Manager UImanager;
+
+    private LevelManager _levelManager;
+
+    private PlayerController _playerController;
+    public GameObject _player;
+
+    public GameObject spawnPoint;
 
     public enum GameState { MainMenu, Gameplay, Paused, Options, GameOver, GameWin }
 
     public GameState gameState;
+
+
+
+
+    public void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        gameState = GameState.MainMenu;
+
+        _levelManager = FindObjectOfType<LevelManager>();
+
+        _playerController = FindObjectOfType<PlayerController>();
+    }
+
+    public void PlayerSpawn()
+    {
+        spawnPoint = GameObject.FindWithTag("SpawnPoint");
+
+        _player.transform.position = spawnPoint.transform.position;
+    }
 
 
     private void Update()
@@ -26,27 +55,37 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void MainMenu()
+    public void MainMenu()
     {
+        Cursor.visible = true;
+
+        _playerController.enabled = false;
+        _player.GetComponent<SpriteRenderer>().enabled = false;
+
         UImanager.UI_MainMenu();
     }
-    private void Gameplay()
+    public void Gameplay()
     {
+        _playerController.enabled = true;
+        _player.GetComponent<SpriteRenderer>().enabled = true;
+
+        _player.SetActive(true);
+
         UImanager.UI_Gameplay();
     }
-    private void Paused()
+    public void Paused()
     {
         UImanager.UI_Paused();
     }
-    private void Options()
+    public void Options()
     {
         UImanager.UI_Options();
     }
-    private void GameOver()
+    public void GameOver()
     {
         UImanager.UI_GameOver();
     }
-    private void GameWin()
+    public void GameWin()
     {
         UImanager.UI_GameWin();
     }
