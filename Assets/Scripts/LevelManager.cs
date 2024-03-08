@@ -10,9 +10,12 @@ public class LevelManager : MonoBehaviour
 
     public GameObject _player;
 
+
     public void LoadScene(string levelName)
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        string currentScene = SceneManager.GetActiveScene().name;
 
         if (levelName != null)
         { 
@@ -35,6 +38,25 @@ public class LevelManager : MonoBehaviour
             {
                 SceneManager.LoadScene(levelName);
                 gameManager.gameState = GameManager.GameState.GameWin;
+            }
+            else if (levelName.StartsWith("Pause"))
+            {
+                gameManager.gameState = GameManager.GameState.Paused;
+            }
+            else if (levelName.StartsWith("Resume"))
+            {
+                if (currentScene.StartsWith("GamePlay"))
+                {
+                    gameManager.gameState = GameManager.GameState.Gameplay;
+                }
+                else if (currentScene.StartsWith("MainMenu"))
+                {
+                    gameManager.gameState = GameManager.GameState.MainMenu;
+                }
+            }
+            else if (levelName.StartsWith("Options"))
+            {
+                gameManager.gameState = GameManager.GameState.Options;
             }
         }
 

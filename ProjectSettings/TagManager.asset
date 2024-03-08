@@ -7,6 +7,7 @@ TagManager:
   - SpawnPoint
   - Portal
   - Portal2
+  - PortalBack
   layers:
   - Default
   - TransparentFX

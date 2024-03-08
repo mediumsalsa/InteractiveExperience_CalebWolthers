@@ -15,11 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject spawnPoint;
 
     public enum GameState { MainMenu, Gameplay, Paused, Options, GameOver, GameWin }
-
     public GameState gameState;
-
-
-
 
     public void Awake()
     {
@@ -31,6 +27,7 @@ public class GameManager : MonoBehaviour
         _levelManager = FindObjectOfType<LevelManager>();
 
         _playerController = FindObjectOfType<PlayerController>();
+
     }
 
     public void PlayerSpawn()
@@ -75,19 +72,25 @@ public class GameManager : MonoBehaviour
     }
     public void Paused()
     {
+        _playerController.enabled = false;
         UImanager.UI_Paused();
     }
     public void Options()
     {
+        _playerController.enabled = false;
         UImanager.UI_Options();
     }
     public void GameOver()
     {
         UImanager.UI_GameOver();
+        _playerController.enabled = false;
+        _player.GetComponent<SpriteRenderer>().enabled = false;
     }
     public void GameWin()
     {
         UImanager.UI_GameWin();
+        _playerController.enabled = false;
+        _player.GetComponent<SpriteRenderer>().enabled = false;
     }
 
 
