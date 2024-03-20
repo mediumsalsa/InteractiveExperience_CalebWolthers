@@ -8,6 +8,8 @@ TagManager:
   - Portal
   - Portal2
   - PortalBack
+  - Coin
+  - Interactable
   layers:
   - Default
   - TransparentFX
