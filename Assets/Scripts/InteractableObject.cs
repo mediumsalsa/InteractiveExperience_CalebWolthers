@@ -6,7 +6,7 @@ using TMPro;
 public class InteractableObject : MonoBehaviour
 {
 
-    public enum ObjectType { nothing, pickup, info }
+    public enum ObjectType { nothing, pickup, info, dialogue }
 
     public Canvas playerCanvas;
     public TextMeshProUGUI playerText;
@@ -26,6 +26,11 @@ public class InteractableObject : MonoBehaviour
         playerCanvas.enabled = true;
         playerText.text = objText;
         Debug.Log("Info object");
+    }
+
+    public void Dialogue()
+    {
+        
     }
 
     public void Nothing()

@@ -16,7 +16,6 @@ public class Interaction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && currentObj != null)
         {
             DoInteraction();
-            //Debug.Log("Picked up " + currentObj.name);
         }
 
     }
@@ -34,6 +33,10 @@ public class Interaction : MonoBehaviour
         if (interactableObjectScript.type == InteractableObject.ObjectType.nothing)
         {
             interactableObjectScript.Nothing();
+        }
+        if (interactableObjectScript.type == InteractableObject.ObjectType.dialogue)
+        {
+            interactableObjectScript.Dialogue();
         }
     }
 
