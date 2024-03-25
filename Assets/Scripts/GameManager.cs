@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject spawnPoint;
 
-    public enum GameState { MainMenu, Gameplay, Paused, Options, GameOver, GameWin }
+    public enum GameState { MainMenu, Gameplay, Paused, Options, GameOver, GameWin, Dialogue }
     public GameState gameState;
 
     public void Awake()
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
             case GameState.Options:     Options();      break;
             case GameState.GameOver:    GameOver();     break;
             case GameState.GameWin:     GameWin();      break;
+            case GameState.Dialogue:    Dialogue();     break;
         }
     }
 
@@ -91,6 +92,12 @@ public class GameManager : MonoBehaviour
         UImanager.UI_GameWin();
         _playerController.enabled = false;
         _player.GetComponent<SpriteRenderer>().enabled = false;
+    }
+    public void Dialogue()
+    {
+        UImanager.UI_Dialogue();
+        _playerController.enabled = false;
+        _player.GetComponent<SpriteRenderer>().enabled = true ;
     }
 
 

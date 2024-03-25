@@ -13,6 +13,8 @@ public class UI_Manager : MonoBehaviour
     public GameObject oGameOver;
     public GameObject oGameWin;
 
+    public GameObject oDialogue;
+
 
     public void UI_MainMenu()
     {
@@ -44,6 +46,11 @@ public class UI_Manager : MonoBehaviour
         SetAllFalse();
         oGameWin.SetActive(true);
     }
+    public void UI_Dialogue()
+    {
+        SetAllFalse();
+        oDialogue.SetActive(true);
+    }
 
     public void SetAllFalse()
     {
@@ -53,6 +60,7 @@ public class UI_Manager : MonoBehaviour
         oOptions.SetActive(false);
         oGameOver.SetActive(false);
         oGameWin.SetActive(false);
+        oDialogue.SetActive(false);
     }
 
 

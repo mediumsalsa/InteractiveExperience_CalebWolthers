@@ -344,10 +344,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8081619e4865d46bda08eb29321408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 2
   playerCanvas: {fileID: 0}
   playerText: {fileID: 0}
   objText: Go North
-  type: 2
+  dialogue:
+    name: 
+    dialogues: []
 --- !u!1 &541113480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,10 +3306,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8081619e4865d46bda08eb29321408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 3
   playerCanvas: {fileID: 0}
   playerText: {fileID: 0}
   objText: 
-  type: 1
+  dialogue:
+    name: Bread Man
+    dialogues:
+    - Hello Chump
+    - Welcome
+    - Go away
 --- !u!58 &890243855
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -79497,10 +79506,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8081619e4865d46bda08eb29321408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   playerCanvas: {fileID: 0}
   playerText: {fileID: 0}
   objText: 
-  type: 1
+  dialogue:
+    name: 
+    dialogues: []
 --- !u!1 &1805497265
 GameObject:
   m_ObjectHideFlags: 0

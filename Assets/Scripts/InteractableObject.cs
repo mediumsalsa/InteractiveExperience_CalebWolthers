@@ -8,12 +8,13 @@ public class InteractableObject : MonoBehaviour
 
     public enum ObjectType { nothing, pickup, info, dialogue }
 
+    public ObjectType type;
+
     public Canvas playerCanvas;
     public TextMeshProUGUI playerText;
     public string objText;
 
-    public ObjectType type;
-
+    public Dialogue dialogue;
 
     public void PickUp()
     {
@@ -30,12 +31,13 @@ public class InteractableObject : MonoBehaviour
 
     public void Dialogue()
     {
-        
+        FindObjectOfType<GameManager>().Dialogue();
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
     public void Nothing()
     {
-
+        
     }
 
 
