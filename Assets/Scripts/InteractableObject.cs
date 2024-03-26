@@ -31,7 +31,6 @@ public class InteractableObject : MonoBehaviour
 
     public void Dialogue()
     {
-        FindObjectOfType<GameManager>().Dialogue();
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 

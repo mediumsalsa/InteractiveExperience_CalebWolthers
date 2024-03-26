@@ -15,8 +15,20 @@ public class DialogueManager : MonoBehaviour
         dialogues = new Queue<string>();
     }
 
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DisplayNextSentence();
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
+        FindAnyObjectByType<LevelManager>().LoadScene("Dialogue");
+
+        textName.text = dialogue.name;
         Debug.Log("Starting conversation with " + dialogue.name);
 
         dialogues.Clear();
@@ -38,12 +50,15 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = dialogues.Dequeue();
+
+        textDialogue.text = sentence;
         Debug.Log(sentence);
     }
 
     public void EndDialogue()
     {
         Debug.Log("End of conversation ");
+        FindAnyObjectByType<LevelManager>().LoadScene("Resume");
     }
 
 

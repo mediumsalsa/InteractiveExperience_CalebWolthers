@@ -58,6 +58,10 @@ public class LevelManager : MonoBehaviour
             {
                 gameManager.gameState = GameManager.GameState.Options;
             }
+            else if (levelName.StartsWith("Dialogue"))
+            {
+                gameManager.gameState = GameManager.GameState.Dialogue;
+            }
         }
 
     }
