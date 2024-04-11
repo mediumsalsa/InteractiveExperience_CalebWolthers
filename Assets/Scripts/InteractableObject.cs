@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-
     public enum ObjectType { nothing, pickup, info, dialogue }
 
     public ObjectType type;
@@ -19,6 +16,7 @@ public class InteractableObject : MonoBehaviour
     public void PickUp()
     {
         Debug.Log("Pick Up Item");
+
         Destroy(gameObject);
     }
 
@@ -36,10 +34,6 @@ public class InteractableObject : MonoBehaviour
 
     public void Nothing()
     {
-        
+
     }
-
-
-
-
 }

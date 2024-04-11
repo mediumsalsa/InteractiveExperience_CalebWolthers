@@ -12,4 +12,10 @@ public class Dialogue
     [TextArea(3, 10)]
     public string[] dialogues;
 
+    [TextArea(3, 10)]
+    public string[] rewardDialogues;
+
+    public GameObject requiredItem;
+    public GameObject rewardItem;
+
 }

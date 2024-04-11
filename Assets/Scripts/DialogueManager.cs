@@ -9,12 +9,14 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI textDialogue;
 
     private Queue<string> dialogues = new Queue<string>();
+    private Dialogue currentDialogue;
+
+    public static bool hasRequiredItem = false;
 
     public void Start()
     {
         dialogues = new Queue<string>();
     }
-
 
     public void Update()
     {
@@ -28,19 +30,32 @@ public class DialogueManager : MonoBehaviour
     {
         FindAnyObjectByType<LevelManager>().LoadScene("Dialogue");
 
+        currentDialogue = dialogue;
         textName.text = dialogue.name;
         Debug.Log("Starting conversation with " + dialogue.name);
 
         dialogues.Clear();
 
-        foreach (string sentence in dialogue.dialogues)
+        if (currentDialogue.requiredItem == null)
         {
-            dialogues.Enqueue(sentence);    
+            dialogue.rewardItem.SetActive(true);
+            foreach (string sentence in dialogue.rewardDialogues)
+            {
+                dialogues.Enqueue(sentence);
+            }
+        }
+        else
+        {
+            foreach (string sentence in dialogue.dialogues)
+            {
+                dialogues.Enqueue(sentence);
+            }
         }
 
         DisplayNextSentence();
-
     }
+
+
 
     public void DisplayNextSentence()
     {
@@ -49,6 +64,7 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
+
         string sentence = dialogues.Dequeue();
 
         textDialogue.text = sentence;
@@ -60,6 +76,4 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("End of conversation ");
         FindAnyObjectByType<LevelManager>().LoadScene("Resume");
     }
-
-
 }
