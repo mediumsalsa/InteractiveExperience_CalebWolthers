@@ -18,4 +18,5 @@ public class Dialogue
     public GameObject requiredItem;
     public GameObject rewardItem;
 
+
 }

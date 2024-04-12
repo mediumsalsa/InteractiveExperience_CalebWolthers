@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class InteractableObject : MonoBehaviour
 {
@@ -7,11 +8,10 @@ public class InteractableObject : MonoBehaviour
 
     public ObjectType type;
 
-    public Canvas playerCanvas;
-    public TextMeshProUGUI playerText;
     public string objText;
 
     public Dialogue dialogue;
+ 
 
     public void PickUp()
     {
@@ -22,9 +22,7 @@ public class InteractableObject : MonoBehaviour
 
     public void Info()
     {
-        playerCanvas.enabled = true;
-        playerText.text = objText;
-        Debug.Log("Info object");
+        
     }
 
     public void Dialogue()

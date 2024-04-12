@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
             {
                 dialogues.Enqueue(sentence);
             }
+
         }
         else
         {

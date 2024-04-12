@@ -12,10 +12,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject oOptions;
     public GameObject oGameOver;
     public GameObject oGameWin;
-
     public GameObject oDialogue;
-
-
     public void UI_MainMenu()
     {
         SetAllFalse();
