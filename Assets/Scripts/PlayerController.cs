@@ -44,6 +44,12 @@ public class PlayerController : MonoBehaviour
 
         rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
     }
 
 
